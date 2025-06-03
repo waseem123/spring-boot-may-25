@@ -7,7 +7,7 @@
 
 <%
 Operations o = new Operations();
-List<Student> s = o.getAllStudents();
+List<Student> s = o.fetchAllFromDB();
 %>
 <!DOCTYPE html>
 <html>

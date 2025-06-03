@@ -17,7 +17,38 @@ public class Operations {
 		return c;
 	}
 
+	public List<Student> fetchAllFromDB(){
+		List<Student> studentList = new ArrayList<>();
+		try {
+			String sql = "SELECT stud_roll_no, stud_name, stud_city FROM tbl_student;";
+			Connection c = dbConnect();
+			PreparedStatement ps = c.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				/*
+				 * System.out.println("ROLL NO - "+rs.getInt("stud_roll_no"));
+				 * System.out.println("NAME    - "+rs.getString("stud_name"));
+				 * System.out.println("CITY    - "+rs.getString("stud_city"));
+				 */
+				int rollno = rs.getInt("stud_roll_no");
+				String name = rs.getString("stud_name");
+				String city = rs.getString("stud_city");
+				
+//				Student s = new Student(rollno,name,city);
+//				studentList.add(s);
+			}
+			
+			
+			Student s = new Student("Akash","Mumbai");
+			saveData(s);
+		}catch(SQLException e) {
+			System.out.println("SQL ERROR - "+e.getMessage());
+		}
+		return studentList;
+	}
+	
 	public List<Student> getAllStudents() {
+		fetchAllFromDB();
 		List<Student> studentlist = new ArrayList<>();
 		dbConnect();
 		Student s1 = new Student(101, "Kamal", "Solapur");
@@ -35,5 +66,21 @@ public class Operations {
 		studentlist.add(s6);
 
 		return studentlist;
+	}
+	
+	public boolean saveData(Student s) {
+		boolean success = false;
+		try {
+			Connection c = dbConnect();
+			String sql = "INSERT INTO tbl_student(stud_name,stud_city)VALUES(?,?);";
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setString(1, s.getStudName());
+			ps.setString(2,s.getStudCity());
+			ps.executeUpdate();
+			success = true;
+		}catch(SQLException e) {
+			System.out.println("SQL ERROR - "+e.getMessage());
+		}
+		return success;
 	}
 }

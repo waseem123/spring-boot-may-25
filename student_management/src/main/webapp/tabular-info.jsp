@@ -7,7 +7,7 @@
 
 <%
 Operations o = new Operations();
-List<Student> s = o.getAllStudents();
+List<Student> s = o.fetchAllFromDB();
 %>
 <!DOCTYPE html>
 <html>
@@ -23,12 +23,11 @@ List<Student> s = o.getAllStudents();
 </head>
 <body>
 	<div class="container">
-		<div class="row mt-3">
-		
-		
+		<div class="row mt-3">	
 			<div class="col-12 mb-3">
 				<div class="card text-white bg-primary">
 					<div class="card-body">
+						<h5 class="display-5">Student List</h5>
 						<table class="table table-bordered table-striped table-hover">
 							<thead>
 								<tr>
