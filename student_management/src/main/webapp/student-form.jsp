@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5>Student Info</h5>
-                        <form action="">
+                        <form action="save-student.jsp" method="POST">
                             <div class="mb-3">
                                 <label for="">Student Name</label>
                                 <input type="text" name="stud_name" class="form-control">

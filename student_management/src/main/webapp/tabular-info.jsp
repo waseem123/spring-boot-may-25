@@ -41,7 +41,7 @@ List<Student> s = o.fetchAllFromDB();
 								<tr>
 									<td><%= s.get(i).getRollNo() %></td>
 									<td><%= s.get(i).getStudName() %></td>
-									<td><%= s.get(i).getStudCity	() %></td>
+									<td><%= s.get(i).getStudCity() %></td>
 								</tr>
 							<% } %>
 							</tbody>
