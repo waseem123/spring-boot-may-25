@@ -1,17 +1,23 @@
 /*
-* Author: Waseem Attar
-* Date  : 20-06-2025
-* Name  : Employee
-* */
+ * Author: Waseem Attar
+ * Date  : 20-06-2025
+ * Name  : Employee
+ * */
 
 package com.infostack.employeemanagement.models;
 
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "tbl_employee")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int empId;
     String empName;
     String empCity;
     int empSalary;
+    String empDesignation;
 
     public Employee() {
     }
@@ -21,6 +27,20 @@ public class Employee {
         this.empCity = empCity;
         this.empName = empName;
         this.empId = empId;
+    }
+
+    public Employee(int empId, String empName, String empCity, int empSalary, String empDesignation) {
+        this.empId = empId;
+        this.empName = empName;
+        this.empCity = empCity;
+        this.empSalary = empSalary;
+        this.empDesignation = empDesignation;
+    }
+
+    public Employee(String empName, String empCity, int empSalary) {
+        this.empName = empName;
+        this.empCity = empCity;
+        this.empSalary = empSalary;
     }
 
     public int getEmpId() {
@@ -53,5 +73,13 @@ public class Employee {
 
     public void setEmpSalary(int empSalary) {
         this.empSalary = empSalary;
+    }
+
+    public String getEmpDesignation() {
+        return empDesignation;
+    }
+
+    public void setEmpDesignation(String empDesignation) {
+        this.empDesignation = empDesignation;
     }
 }
