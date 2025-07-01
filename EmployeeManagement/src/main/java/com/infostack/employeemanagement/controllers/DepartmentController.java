@@ -3,10 +3,7 @@ package com.infostack.employeemanagement.controllers;
 import com.infostack.employeemanagement.models.Department;
 import com.infostack.employeemanagement.repositories.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -58,5 +55,15 @@ public class DepartmentController {
         }
     }
 
+    @RequestMapping("/edit")
+    public Department editDept(@RequestBody Department d){
+        return dr.save(d);
+    }
+
+    @RequestMapping("/delete")
+    public Department deleteDept(@RequestBody Department d){
+        dr.delete(d);
+        return d;
+    }
 
 }
