@@ -19,7 +19,12 @@ public class CustomerController {
 
     @RequestMapping("")
     public List<Customer> getCustomers() {
-        return new ArrayList<>();
+        return cs.getAllCustomers();
+    }
+
+    @RequestMapping("/sorted")
+    public List<Customer> getSortedCustomers() {
+        return cs.getAllCustomersSorted();
     }
 
     @RequestMapping("/save")
