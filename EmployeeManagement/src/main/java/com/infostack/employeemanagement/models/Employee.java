@@ -19,6 +19,10 @@ public class Employee {
     int empSalary;
     String empDesignation;
 
+    @ManyToOne
+    @JoinColumn(name = "dept_id")
+    Department department;
+
     public Employee() {
     }
 
@@ -41,6 +45,23 @@ public class Employee {
         this.empName = empName;
         this.empCity = empCity;
         this.empSalary = empSalary;
+    }
+
+    public Employee(int empId, String empName, String empCity, int empSalary, String empDesignation, Department department) {
+        this.empId = empId;
+        this.empName = empName;
+        this.empCity = empCity;
+        this.empSalary = empSalary;
+        this.empDesignation = empDesignation;
+        this.department = department;
+    }
+
+    public Employee(String empName, String empCity, int empSalary, String empDesignation, Department department) {
+        this.empName = empName;
+        this.empCity = empCity;
+        this.empSalary = empSalary;
+        this.empDesignation = empDesignation;
+        this.department = department;
     }
 
     public int getEmpId() {
@@ -81,5 +102,25 @@ public class Employee {
 
     public void setEmpDesignation(String empDesignation) {
         this.empDesignation = empDesignation;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", empCity='" + empCity + '\'' +
+                ", empSalary=" + empSalary +
+                ", empDesignation='" + empDesignation + '\'' +
+                ", department=" + department +
+                '}';
     }
 }

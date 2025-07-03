@@ -25,8 +25,6 @@ public class CustomerService {
         return customers;
     }
 
-
-
     public Customer getById(int id) {
         if (cr.findById(id).isPresent())
             return cr.findById(id).get();

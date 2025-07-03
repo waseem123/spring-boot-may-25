@@ -2,8 +2,10 @@ package com.infostack.employeemanagement.controllers;
 
 import com.infostack.employeemanagement.repositories.EmployeeRepository;
 import com.infostack.employeemanagement.models.Employee;
+import com.infostack.employeemanagement.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +15,9 @@ import java.util.NoSuchElementException;
 
 @RestController
 public class EmployeeController {
+    @Autowired
+    EmployeeService es;
+
     @Autowired
     EmployeeRepository er;
     List<Employee> empList = new ArrayList<>();
@@ -69,6 +74,12 @@ public class EmployeeController {
         e1.setEmpSalary(250000);
         e1.setEmpDesignation("General Manager");
         return er.save(e1);
+    }
+
+
+    @RequestMapping("employee/savedata")
+    public Employee saveEmployee(@RequestBody Employee e){
+        return es.saveData(e);
     }
 
     @RequestMapping("employee/all-employees")

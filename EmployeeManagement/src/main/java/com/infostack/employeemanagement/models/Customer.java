@@ -7,12 +7,17 @@ import jakarta.persistence.*;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private int customerId;
+    @Column(name = "customer_name")
     private String customerName;
+    @Column(name = "customer_gender")
     private String customerGender;
+    @Column(name = "customer_city")
     private String customerCity;
 
-    public  Customer(){}
+    public Customer() {
+    }
 
     public Customer(int customerId, String customerName, String customerGender, String customerCity) {
         this.customerId = customerId;
