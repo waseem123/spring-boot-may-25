@@ -1,13 +1,11 @@
 package com.infostack.employeemanagement.controllers;
 
+import com.infostack.employeemanagement.models.Department;
 import com.infostack.employeemanagement.repositories.EmployeeRepository;
 import com.infostack.employeemanagement.models.Employee;
 import com.infostack.employeemanagement.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,6 +113,21 @@ public class EmployeeController {
         }catch (NoSuchElementException ex){
             return new Employee();
         }
+    }
+
+    @RequestMapping("employee/departmentwise/fetch")
+    public List<Employee> fetchByDept(@RequestBody Department dept){
+        return es.findByDepartment(dept);
+    }
+
+    @RequestMapping("employee/departmentnamewise/fetch")
+    public List<Employee> fetchByDeptName(@RequestParam("deptName") String deptName){
+        return es.findByDepartmentName(deptName);
+    }
+
+    @RequestMapping("employee/department/{deptId}")
+    public List<Employee> fetchByDeptId(@PathVariable("deptId") int deptId){
+        return es.findByDepartmentDeptID(deptId);
     }
 
 }

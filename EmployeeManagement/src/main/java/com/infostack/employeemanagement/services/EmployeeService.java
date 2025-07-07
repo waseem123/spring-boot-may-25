@@ -17,7 +17,14 @@ public class EmployeeService {
         return er.save(e);
     }
 
-    public List<Employee> deptWiseEmployees(Department d){
+    public List<Employee> findByDepartment(Department dept) {
+        return er.findByDepartment(dept);
+    }
 
+    public List<Employee> findByDepartmentName(String deptName) {
+        return er.findByDepartmentDeptName(deptName);
+    }
+    public List<Employee> findByDepartmentDeptID(int deptId){
+        return er.findByDepartmentDeptId(deptId);
     }
 }

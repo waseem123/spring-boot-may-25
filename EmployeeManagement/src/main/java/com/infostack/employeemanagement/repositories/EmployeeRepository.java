@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
-    @Query("SELECT Employee e, Department d ")
-    public List<Employee> getByDepartment(Department d);
-
+    List<Employee> findByDepartment(Department dept);
+    List<Employee> findByDepartmentDeptName(String deptName);
+    List<Employee> findByDepartmentDeptId(int deptId);
 }
