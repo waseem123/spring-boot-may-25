@@ -25,7 +25,11 @@ public class Employee {
 
     public Employee() {
     }
-
+    public Employee(int empId, String empName, String empCity) {
+        this.empId = empId;
+        this.empName = empName;
+        this.empCity = empCity;
+    }
     public Employee(int empId, String empName, String empCity, int empSalary) {
         this.empSalary = empSalary;
         this.empCity = empCity;

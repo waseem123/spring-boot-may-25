@@ -1,5 +1,6 @@
 package com.infostack.employeemanagement.controllers;
 
+import com.infostack.employeemanagement.dtos.EmployeeDTO;
 import com.infostack.employeemanagement.models.Department;
 import com.infostack.employeemanagement.repositories.EmployeeRepository;
 import com.infostack.employeemanagement.models.Employee;
@@ -128,6 +129,11 @@ public class EmployeeController {
     @RequestMapping("employee/department/{deptId}")
     public List<Employee> fetchByDeptId(@PathVariable("deptId") int deptId){
         return es.findByDepartmentDeptID(deptId);
+    }
+
+    @GetMapping("emp")
+    public EmployeeDTO fetchEmployeeById(@RequestParam("empId") int empId){
+        return es.findByEmpId(empId);
     }
 
 }

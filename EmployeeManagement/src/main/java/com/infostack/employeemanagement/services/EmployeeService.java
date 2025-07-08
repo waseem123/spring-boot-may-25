@@ -1,5 +1,6 @@
 package com.infostack.employeemanagement.services;
 
+import com.infostack.employeemanagement.dtos.EmployeeDTO;
 import com.infostack.employeemanagement.models.Department;
 import com.infostack.employeemanagement.models.Employee;
 import com.infostack.employeemanagement.repositories.EmployeeRepository;
@@ -26,5 +27,9 @@ public class EmployeeService {
     }
     public List<Employee> findByDepartmentDeptID(int deptId){
         return er.findByDepartmentDeptId(deptId);
+    }
+
+    public EmployeeDTO findByEmpId(int empId) {
+        return er.findByEmpId(empId);
     }
 }
