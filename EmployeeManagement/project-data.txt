@@ -1,0 +1,37 @@
+1. Document Manager
+    1. Categorization of documents
+        a. personal
+            directory structure -> document storage
+        b. official
+            directory structure -> document storage
+        c. casual
+            directory structure -> document storage
+    2. Upload facility
+        allow to upload documents (limit-20 per folders)
+    3. Sharing facility
+        1. Generate Unique link for sharing a single file
+        or a single folder
+        2. Generate a QR code for a file or a folder
+    4. Access Control
+        1. Visible only on the link or platform
+        2. Downloadable access
+            - Single file
+            - Single folder (folder has to be downloaded in zip)
+    5. Dashboard
+        (Total Files, Total Folders, Shared files, Shared Folders)
+    6. Graphs (Optional)
+
+
+2. Budget Tracker
+    1. For every month setting a budget threshold
+    2. Recording every single spend and every single earning
+    3. Warning should be displayed, if the spend reaches the 
+        75% of the budget threshold (transactions will still be allowed)
+    4. When the user reaches 90% of the budget then account should be 
+        locked (No further transactions will be allowed)
+    5. Spend will reflect on Negative transactions and Once the budget
+        is refilled then initial negative budget amount is deducted 
+        against new budget value
+        (Automatic threshold calculation against negative spend)
+    6. Report (Spend, Earning, Total Transactions)
+    7. Graphs (If possible)
